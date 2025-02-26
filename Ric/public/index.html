@@ -76,6 +76,30 @@
             window.close();
             alert('Thank you for using our service!');
         }
+
+        const registerForm = document.getElementById('registerForm');
+    registerForm.onsubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(registerForm);
+
+        const response = await fetch('/auth/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: formData.get('name'),
+                email: formData.get('email'),
+                password: formData.get('password')
+            })
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            alert('Registration successful! Redirecting to login...');
+            window.location.href = '/'; // ✅ Redirect to profile
+        } else {
+            alert(result.message || 'Registration failed');
+        }
+    };
     </script>
 
 </body>

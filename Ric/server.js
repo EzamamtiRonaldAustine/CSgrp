@@ -26,14 +26,17 @@ function saveUsers(users) {
 // Register Endpoint
 app.post('/auth/register', async (req, res) => {
     const { name, email, password } = req.body;
-    let users = loadUsers();
-    
-    if (users.some(user => user.email === email)) {
-        return res.status(400).json({ message: 'User already exists' });
+    console.log(req.body)
+    if (!req.body.password) {
+        return res.status(400).json({ error: "Password is required" });
     }
+    let users = loadUsers();
     
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
+        if (!req.body.password) {
+            return res.status(400).json({ error: "Password is required" });
+        }
         users.push({ name, email, password: hashedPassword });
         saveUsers(users);
         res.json({ message: 'User registered successfully' });
