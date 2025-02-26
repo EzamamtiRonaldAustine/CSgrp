@@ -78,10 +78,13 @@
         function logout() {
             localStorage.removeItem('currentUser');
             window.location.href = '/';
+            alert('You have been logged out');
         }
 
         function exit() {
+            alert('Thank you for using our service!');
             window.close();
+            
         }
     </script>
 </body>
