@@ -95,7 +95,7 @@
         const result = await response.json();
         if (response.ok) {
             alert('Registration successful! Redirecting to login...');
-            window.location.href = '/'; // ✅ Redirect to profile
+            window.location.href = '/'; 
         } else {
             alert(result.message || 'Registration failed');
         }
