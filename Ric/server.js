@@ -32,10 +32,16 @@ app.post('/auth/register', async (req, res) => {
         return res.status(400).json({ message: 'User already exists' });
     }
     
-    const hashedPassword = await bcrypt.hash(password, 10);
-    users.push({ name, email, password: hashedPassword });
-    saveUsers(users);
-    res.json({ message: 'User registered successfully' });
+    try {
+        const hashedPassword = await bcrypt.hash(password, 10);
+        users.push({ name, email, password: hashedPassword });
+        saveUsers(users);
+        res.json({ message: 'User registered successfully' });
+    } catch (error) {
+        console.error('Error during registration:', error);
+        res.status(500).json({ message: 'Registration failed' });
+    }
+
 });
 
 // Login Endpoint
