@@ -20,6 +20,21 @@
     "password": "$2b$10$yruE10.gmzCd.Zt7rQYtMOMqKGHPDN3PVo/RlFaMURr1BBJunsgce"
   },
   {
+    "name": "maya",
+    "email": "maya@yahoo.com",
+    "password": "$2b$10$Kd/y442Jm4ydkD3zQxq3yOmysNmgvskDJLTc/CYNs7K6ePwr9/gTu"
+  },
+  {
+    "name": "Tendo Uso",
+    "email": "ten@gmail.com",
+    "password": "$2b$10$IftAXyipcfUv4t77EDgi.eaO2DlIa0MHEwy3kBzoQmx/UYfZYh.tG"
+  },
+  {
+    "name": "Joy",
+    "email": "joy@gmail.com",
+    "password": "$2b$10$HKAm7LNVIcItU7f0uRyEYOCpWS2TecpjJXLjlSegP6xcNRrxr4NNi"
+  },
+  {
     "name": "CAt",
     "email": "cat@gmail.com",
     "password": "$2b$10$laWqYtP2meOTXcBpJmJuT.Th/HmbjMyuJvMS/PJ4sTgTqm/2n5BCK"
