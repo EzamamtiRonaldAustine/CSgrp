@@ -9,13 +9,23 @@
 <body>
     <div class="container">
         <h1>User Profile</h1>
+
+        <!-- Profile Picture Section -->
+        <div class="profile-pic-container">
+            <img id="profilePic" src="default-avatar.png" alt="Profile Picture">
+            <input type="file" id="uploadPic" accept="image/*">
+            <button onclick="uploadProfilePic()">Upload</button>
+        </div>
+
         <p id="profileName"></p>
         <p id="profileEmail"></p>
+
         <div class="menu">
             <button onclick="logout()">Logout</button>
             <button onclick="exit()">Exit</button>
         </div>
     </div>
+
     <script>
         // Retrieve user email from localStorage
         const userEmail = JSON.parse(localStorage.getItem('currentUser'))?.email;
@@ -27,6 +37,12 @@
                 .then(user => {
                     document.getElementById('profileName').innerText = `Name: ${user.name}`;
                     document.getElementById('profileEmail').innerText = `Email: ${user.email}`;
+
+                    // Load stored profile picture if available
+                    const storedPic = localStorage.getItem('profilePic_' + user.email);
+                    if (storedPic) {
+                        document.getElementById('profilePic').src = storedPic;
+                    }
                 })
                 .catch(error => {
                     console.error('Error fetching profile:', error);
@@ -35,6 +51,28 @@
         } else {
             // Redirect to login page if no email is found
             window.location.href = '/';
+        }
+
+        // Function to upload profile picture
+        function uploadProfilePic() {
+            const fileInput = document.getElementById('uploadPic');
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    const imageUrl = event.target.result;
+
+                    // Save image to localStorage
+                    localStorage.setItem('profilePic_' + userEmail, imageUrl);
+
+                    // Update profile picture display
+                    document.getElementById('profilePic').src = imageUrl;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                alert('Please select an image to upload.');
+            }
         }
 
         function logout() {
@@ -48,3 +86,4 @@
     </script>
 </body>
 </html>
+
