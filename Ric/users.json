@@ -18,5 +18,10 @@
     "name": "MAy",
     "email": "May@gmail.com",
     "password": "$2b$10$yruE10.gmzCd.Zt7rQYtMOMqKGHPDN3PVo/RlFaMURr1BBJunsgce"
+  },
+  {
+    "name": "CAt",
+    "email": "cat@gmail.com",
+    "password": "$2b$10$laWqYtP2meOTXcBpJmJuT.Th/HmbjMyuJvMS/PJ4sTgTqm/2n5BCK"
   }
 ]
