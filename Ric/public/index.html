@@ -62,9 +62,14 @@
         };
 
         function viewProfile() {
-            // Profile is already visible
-            alert('Profile is currently displayed');
+            const profileDiv = document.getElementById('profile');
+            if (profileDiv.style.display === 'none') {
+                profileDiv.style.display = 'block'; // Show the profile
+            } else {
+                alert('Profile is currently displayed');
+            }
         }
+
 
         function logout() {
             document.getElementById('profile').style.display = 'none';
@@ -78,7 +83,7 @@
         }
 
         const registerForm = document.getElementById('registerForm');
-    registerForm.onsubmit = async (e) => {
+        registerForm.onsubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData(registerForm);
 

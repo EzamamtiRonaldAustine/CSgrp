@@ -68,4 +68,22 @@ app.get('/auth/profile', (req, res) => {
     res.json({ name: user.name, email: user.email });
 });
 
+// Update profile picture
+app.post("/auth/updateProfilePic", (req, res) => {
+    const { email, profilePic } = req.body;
+    let users = loadUsers();
+    const userIndex = users.findIndex((user) => user.email === email);
+
+    if (userIndex === -1) {
+        return res.status(404).json({ message: "User not found" });
+    }
+
+    // Save profile picture in the user's data
+    users[userIndex].profilePic = profilePic;
+    saveUsers(users);
+
+    res.json({ message: "Profile picture updated successfully!", profilePic});
+});
+
+
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

@@ -38,5 +38,10 @@
     "name": "CAt",
     "email": "cat@gmail.com",
     "password": "$2b$10$laWqYtP2meOTXcBpJmJuT.Th/HmbjMyuJvMS/PJ4sTgTqm/2n5BCK"
+  },
+  {
+    "name": "mark",
+    "email": "mk@gmail.com",
+    "password": "$2b$10$YUc3KAjVGJ2pNwsWaQnTZupihufTMBgvctssWmW03L2cVj7KlCANm"
   }
 ]
