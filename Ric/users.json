@@ -43,5 +43,10 @@
     "name": "mark",
     "email": "mk@gmail.com",
     "password": "$2b$10$YUc3KAjVGJ2pNwsWaQnTZupihufTMBgvctssWmW03L2cVj7KlCANm"
+  },
+  {
+    "name": "Meow",
+    "email": "meow@gmail.com",
+    "password": "$2b$10$tv0y/05Me8Uv5v4awDC1N.sPqkNLFvui1BXh5eI1CT7mV1ej6aozC"
   }
 ]
