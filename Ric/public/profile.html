@@ -17,9 +17,9 @@
         </div>
     </div>
     <script>
-        // Get user email from localStorage
+        // Retrieve user email from localStorage
         const userEmail = JSON.parse(localStorage.getItem('currentUser'))?.email;
-        
+
         if (userEmail) {
             // Fetch user data from server
             fetch(`/auth/profile?email=${encodeURIComponent(userEmail)}`)
@@ -36,7 +36,6 @@
             // Redirect to login page if no email is found
             window.location.href = '/';
         }
-
 
         function logout() {
             localStorage.removeItem('currentUser');
