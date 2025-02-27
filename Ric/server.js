@@ -40,7 +40,6 @@ app.post('/auth/register', async (req, res) => {
         users.push({ name, email, password: hashedPassword });
         saveUsers(users);
         res.json({ message: 'User registered successfully' });
-        res.json({ name: user.name, email: user.email });
     } catch (error) {
         console.error('Error during registration:', error);
         res.status(500).json({ message: 'Registration failed' });
