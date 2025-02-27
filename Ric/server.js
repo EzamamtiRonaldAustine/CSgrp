@@ -65,7 +65,7 @@ app.get('/auth/profile', (req, res) => {
     let users = loadUsers();
     const user = users.find(u => u.email === email);
     if (!user) return res.status(404).json({ message: 'User not found' });
-    res.json({ name: user.name, email: user.email });
+    res.json({ name: user.name, email: user.email, profilePic:user.profilePic});
 });
 
 // Update profile picture

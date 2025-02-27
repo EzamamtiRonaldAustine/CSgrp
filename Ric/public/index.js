@@ -53,28 +53,37 @@ function registering(){
 }
 
 // Retrieve user email from localStorage
-function profileOnload(){
+function profileOnload() {
     const userEmail = JSON.parse(localStorage.getItem('currentUser'))?.email;
 
-        if (userEmail) {
-            // Fetch user data from server
-            fetch(`/auth/profile?email=${encodeURIComponent(userEmail)}`)
-                .then(response => response.json())
-                .then(user => {
-                    document.getElementById('profileName').innerText = `Name: ${user.name}`;
-                    document.getElementById('profileEmail').innerText = `Email: ${user.email}`;
-                    document.getElementById('profilePic_l').innerText = `Email: ${user.profilePicl}`;
-    
-                })
-                .catch(error => {
-                    console.error('Error fetching profile:', error);
-                    window.location.href = '/';
-                });
-        } else {
-            // Redirect to login page if no email is found
-            window.location.href = '/';
-        }
+    if (userEmail) {
+        // Fetch user data from server
+        fetch(`/auth/profile?email=${encodeURIComponent(userEmail)}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Failed to fetch profile");
+                }
+                return response.json();
+            })
+            .then(user => {
+                document.getElementById('profileName').innerText = `Name: ${user.name}`;
+                document.getElementById('profileEmail').innerText = `Email: ${user.email}`;
+                
+                // Fixing incorrect property access
+                if (user.profilePic) {
+                    document.getElementById('profilePic').src = user.profilePic;
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching profile:', error);
+                window.location.href = '/';
+            });
+    } else {
+        // Redirect to login page if no email is found
+        window.location.href = '/';
+    }
 }
+
     // Function to upload profile picture
 async function uploadProfilePic() {
     const fileInput = document.getElementById('uploadPic');
