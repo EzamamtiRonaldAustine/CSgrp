@@ -80,28 +80,59 @@ function profileOnload(){
         }
 }
     // Function to upload profile picture
-    function uploadProfilePic() {
-        const fileInput = document.getElementById('uploadPic');
-        const file = fileInput.files[0];
-        
-        const userEmail=JSON.parse(localStorage.getItem('currentUser'))?.email;
+async function uploadProfilePic() {
+    const fileInput = document.getElementById('uploadPic');
+    const file = fileInput.files[0];
+    
+    const userEmail = JSON.parse(localStorage.getItem('currentUser'))?.email;
 
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function (event) {
-                const imageUrl = event.target.result;
-
-                // Save image to localStorage
-                localStorage.setItem('profilePic_' + userEmail, imageUrl);
-
-                // Update profile picture display
-                document.getElementById('profilePic').src = imageUrl;
-            };
-            reader.readAsDataURL(file);
-        } else {
-            alert('Please select an image to upload.');
-        }
+    if (!userEmail) {
+        alert("No user is logged in.");
+        return;
     }
+
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = async function (event) {
+            const imageUrl = event.target.result;
+
+            // Save image to localStorage
+            localStorage.setItem('profilePic_' + userEmail, imageUrl);
+
+            // Update profile picture display
+            document.getElementById('profilePic').src = imageUrl;
+
+            // Send profile picture update to the server
+            try {
+                const response = await fetch("/auth/updateProfilePic", {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email: userEmail,
+                        profilePic: imageUrl
+                    })
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    alert(data.message);
+                } else {
+                    alert("Error: " + data.message);
+                }
+            } catch (error) {
+                console.error("Error updating profile picture:", error);
+                alert("An error occurred while updating the profile picture.");
+            }
+        };
+
+        reader.readAsDataURL(file);
+    } else {
+        alert("Please select an image to upload.");
+    }
+}
+
 
         function logout() {
             localStorage.removeItem('currentUser');
