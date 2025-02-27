@@ -48,5 +48,60 @@
     "name": "Meow",
     "email": "meow@gmail.com",
     "password": "$2b$10$tv0y/05Me8Uv5v4awDC1N.sPqkNLFvui1BXh5eI1CT7mV1ej6aozC"
+  },
+  {
+    "name": "betty",
+    "email": "betty@gmail.com",
+    "password": "$2b$10$pWvvB219ZiuW2iwvYt0FWec97FvSCCA7PoGYyUjjQ70oiwybpRgHO"
+  },
+  {
+    "name": "zac",
+    "email": "zac@gmail.com",
+    "password": "$2b$10$EyfoosXWlw3VAnecfcuvk.jlT5cES9nJwP2tg/URg6FxDD1Fkh.Hi"
+  },
+  {
+    "name": "mac",
+    "email": "mac@gmail.com",
+    "password": "$2b$10$Fq4YLySORhdND5hI90w05e2gQqT1niP58mgWyM12SL/2a8KQJXzPy"
+  },
+  {
+    "name": "baby",
+    "email": "justin@gmail.com",
+    "password": "$2b$10$7r3.cmUtOYx76gEaPm7MAObm15NEXNnQJOng92x8EKrYz.Pe9/sNK"
+  },
+  {
+    "name": "mika",
+    "email": "mika@gmail.com",
+    "password": "$2b$10$1BbRoHYMH8EVAnCoUbbumeTYCl865rG3g7/F8R5QUUHeHBITW2lz."
+  },
+  {
+    "name": "miaka",
+    "email": "miaka@gmail.com",
+    "password": "$2b$10$cp47/wg4YnRjp7RFsrLzQemNnnwETrO.V966nJlVhmWHAsr25POja"
+  },
+  {
+    "name": "miaka",
+    "email": "miaka@gmail.com",
+    "password": "$2b$10$yNoKxEw2TBkoO7LlMwR4.Oj3wCTKy0ikaRv58wY5mpiPDJ.pQ5ZhW"
+  },
+  {
+    "name": "beauty",
+    "email": "beaty@gmail.com",
+    "password": "$2b$10$QCqwYXHCLvfElBvy8cShwuhahCK5XUgyLj9ldCf1g760V.BIoNgCm"
+  },
+  {
+    "name": "beauty",
+    "email": "beaty@gmail.com",
+    "password": "$2b$10$EHoQ6YE/L4I9hjtXnm5XG.xDupo3gxz9icYlh2ZqjsNCzrEnLd1tG"
+  },
+  {
+    "name": "fish",
+    "email": "fish@gmail.com",
+    "password": "$2b$10$is8/8SwWrC7Y6GUjw2hvvuCZO.C.HSOUxGWncURzm4xx/UjaFc4ce"
+  },
+  {
+    "name": "fish",
+    "email": "fish@gmail.com",
+    "password": "$2b$10$/5LOK1zLgP1vZKRDp1/Im.ubUWPrf.VGqghwo7L2adbBV9lpTMnrm"
   }
 ]

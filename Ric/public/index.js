@@ -43,8 +43,9 @@ function registering(){
 
         const result = await response.json();
         if (response.ok) {
+            localStorage.setItem('currentUser', JSON.stringify(result));
             alert('Registration successful! Redirecting to login...');
-            window.location.href = '/profile.html'; 
+            window.location.href = '/'; 
         } else {
             alert(result.message || 'Registration failed');
         }
