@@ -103,5 +103,10 @@
     "name": "fish",
     "email": "fish@gmail.com",
     "password": "$2b$10$/5LOK1zLgP1vZKRDp1/Im.ubUWPrf.VGqghwo7L2adbBV9lpTMnrm"
+  },
+  {
+    "name": "Jim",
+    "email": "jim@gmail.com",
+    "password": "$2b$10$G3yvisG19Bg.vUDY1ljOQuMPzYgfp9Nlc2mXpFgAqM58OvBpUIY2e"
   }
 ]
