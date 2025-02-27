@@ -1,4 +1,9 @@
+// Handle login form submission
+// Validates and submits login credentials to the server
+// Stores user data in localStorage on successful login
 function emailfetcher(){
+
+
     const loginForm = document.getElementById('loginForm');
     loginForm.onsubmit = async (e) => {
         e.preventDefault();
@@ -25,7 +30,12 @@ function emailfetcher(){
 
 }
 
+// Handle registration form submission
+// Validates and submits new user registration data
+// Stores user data in localStorage on successful registration
 function registering(){
+
+
     const registerForm = document.getElementById('registerForm');
         registerForm.onsubmit = async (e) => {
         e.preventDefault();
@@ -52,7 +62,11 @@ function registering(){
     };
 }
 
-// Retrieve user email from localStorage
+// Load and display user profile data on page load
+// Retrieves user data from server using stored email
+// Updates profile information display
+
+
 function profileOnload() {
     const userEmail = JSON.parse(localStorage.getItem('currentUser'))?.email;
 
@@ -84,7 +98,11 @@ function profileOnload() {
     }
 }
 
-    // Function to upload profile picture
+    // Handle profile picture upload and update
+    // Processes image file upload and updates profile picture
+    // Stores image in localStorage and updates server
+
+
 async function uploadProfilePic() {
     const fileInput = document.getElementById('uploadPic');
     const file = fileInput.files[0];
@@ -139,13 +157,21 @@ async function uploadProfilePic() {
 }
 
 
+        // Logout user and clear session data
+        // Removes user data from localStorage and redirects to login page
         function logout() {
+
+
             localStorage.removeItem('currentUser');
             window.location.href = '/';
             alert('You have been logged out');
         }
 
+        // Exit application with confirmation
+        // Shows confirmation message and redirects to login page
         function exit() {
+
+
             alert('Thank you for using our service!');
             window.location.href = '/';
             

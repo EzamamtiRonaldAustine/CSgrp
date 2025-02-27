@@ -4,24 +4,30 @@ const bcrypt = require('bcrypt');
 const path = require('path');
 const cors = require('cors');
 
+// Initialize Express app and configure constants
 const app = express();
-const PORT = 3000;
-const USERS_FILE = path.join(__dirname, 'users.json');
+const PORT = 3000; // Server port
+const USERS_FILE = path.join(__dirname, 'users.json'); // Path to users data file
+
 
 app.use(express.json());
-app.use(cors());
-app.use(express.static('public'));
+// Enable CORS and serve static files
+app.use(cors()); // Allow cross-origin requests
+app.use(express.static('public')); // Serve static files from 'public' directory
+
 
 // Load users from JSON file
 function loadUsers() {
-    if (!fs.existsSync(USERS_FILE)) return [];
-    return JSON.parse(fs.readFileSync(USERS_FILE, 'utf8'));
+    if (!fs.existsSync(USERS_FILE)) return []; // Return empty array if file doesn't exist
+    return JSON.parse(fs.readFileSync(USERS_FILE, 'utf8')); // Parse and return user data
 }
+
 
 // Save users to JSON file
 function saveUsers(users) {
-    fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
+    fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2)); // Write formatted JSON to file
 }
+
 
 // Register Endpoint
 app.post('/auth/register', async (req, res) => {
@@ -87,4 +93,5 @@ app.patch("/auth/updateProfilePic", (req, res) => {
 
 
 
+// Start the server
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
