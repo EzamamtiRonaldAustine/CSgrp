@@ -63,12 +63,8 @@ function profileOnload(){
                 .then(user => {
                     document.getElementById('profileName').innerText = `Name: ${user.name}`;
                     document.getElementById('profileEmail').innerText = `Email: ${user.email}`;
-
-                    // Load stored profile picture if available
-                    const storedPic = localStorage.getItem('profilePic_' + user.email);
-                    if (storedPic) {
-                        document.getElementById('profilePic').src = storedPic;
-                    }
+                    document.getElementById('profilePic_l').innerText = `Email: ${user.profilePicl}`;
+    
                 })
                 .catch(error => {
                     console.error('Error fetching profile:', error);
